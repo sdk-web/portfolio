@@ -5,6 +5,20 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             templateUrl: 'pages/home.html',
             controller: 'MainController'
         })
+        .when('/publishing', {
+            templateUrl: 'pages/about.html'
+        })
+        .when('/php-dev', {
+            templateUrl: 'pages/php-dev.html',
+            resolve: {
+                loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        '/assets/js/php-dev-controller.js'
+                    ]);
+                }]
+            },
+            controller: 'PHPDevController'
+        })
         .when('/about', {
             templateUrl: 'pages/about.html',
             resolve: {

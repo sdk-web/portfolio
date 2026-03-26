@@ -23,13 +23,16 @@
 
 <body ng-controller="MainController" ng-class="bodyClass">
     <div class="main-container">
-        <nav>
+        <!-- 네비게이션은 특정 페이지(about, php-dev)에서만 보여주거나 스타일 조정 -->
+        <nav ng-if="!isHome">
             <a href="/">홈</a>
             <a href="/about">정보</a>
+            <a href="/publishing">Publishing</a>
+            <a href="/php-dev">PHP Dev</a>
         </nav>
 
         <!-- 라우팅된 페이지가 표시될 영역 -->
-        <div ng-view></div>
+        <div ng-view class="view-animate"></div>
     </div>
 </body>
 
