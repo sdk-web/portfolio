@@ -40,6 +40,7 @@
                         <td>{{post.created_at | date:'yyyy-MM-dd'}}</td>
                         <td>
                             <span class="status-badge" ng-class="post.reply ? 'status-done' : 'status-waiting'">
+                                <i ng-if="!post.reply" class="fas fa-spinner fa-spin"></i>
                                 {{post.reply ? '답변 완료' : '답변 대기'}}
                             </span>
                         </td>
