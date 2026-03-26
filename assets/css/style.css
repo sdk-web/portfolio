@@ -91,8 +91,8 @@ nav {
     width: 100%;
     z-index: 100;
     padding: 20px 50px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.6); /* 어두운 배경으로 변경하여 흰색 글자 가독성 높임 */
+    backdrop-filter: blur(15px);
     display: flex;
     gap: 30px;
 }
@@ -159,10 +159,14 @@ nav a {
 }
 
 .status-badge {
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
+    display: inline-block;
+    white-space: nowrap; /* 줄바꿈 방지 */
+    min-width: 90px;
+    text-align: center;
 }
 
 .status-waiting { background: #ffeaa7; color: #d63031; }
