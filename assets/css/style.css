@@ -826,6 +826,36 @@ nav a.active {
     gap: 24px;
 }
 
+.featured-projects-card {
+    grid-column: 1 / -1;
+}
+
+.featured-projects-head {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.7fr);
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 24px;
+}
+
+.featured-projects-copy {
+    margin: 0 !important;
+    font-size: 0.98rem !important;
+    line-height: 1.85 !important;
+    color: #66594c !important;
+}
+
+.featured-projects-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 26px;
+}
+
+.featured-projects-block {
+    display: grid;
+    gap: 16px;
+}
+
 .about-page .card {
     position: relative;
     overflow: hidden;
@@ -965,6 +995,12 @@ nav a.active {
     border-top: 1px solid rgba(20, 20, 20, 0.08);
 }
 
+.archive-preview-head.compact {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
 .archive-kicker {
     font-size: 0.78rem;
     font-weight: 600;
@@ -1065,12 +1101,16 @@ nav a.active {
 
 .about-modal-shell {
     z-index: 1200;
+    align-items: flex-start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }
 
 .archive-modal-card {
     width: min(1080px, calc(100vw - 32px));
-    max-height: min(86vh, 920px);
-    overflow-y: auto;
+    max-height: none;
+    overflow: visible;
+    margin: 24px auto;
 }
 
 .archive-modal-head {
@@ -1168,6 +1208,58 @@ nav a.active {
     margin-top: 22px;
 }
 
+.archive-thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.archive-thumbnail-card {
+    display: grid;
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+}
+
+.archive-thumbnail-card strong {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: #2a241e;
+}
+
+.archive-thumbnail-image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(20, 20, 20, 0.08);
+    box-shadow: 0 10px 20px rgba(31, 24, 17, 0.07);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(243, 236, 227, 0.92));
+}
+
+.archive-thumbnail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.archive-thumbnail-card.active .archive-thumbnail-image {
+    border-color: rgba(182, 129, 45, 0.45);
+    box-shadow: 0 14px 24px rgba(182, 129, 45, 0.12);
+}
+
+.archive-placeholder.thumb {
+    padding: 14px;
+}
+
+.archive-placeholder.thumb span {
+    font-size: 0.74rem;
+}
+
 .archive-dot {
     width: 9px;
     height: 9px;
@@ -1205,6 +1297,8 @@ nav a.active {
         grid-template-columns: 1fr;
     }
 
+    .featured-projects-head,
+    .featured-projects-layout,
     .archive-preview-grid,
     .archive-slide {
         grid-template-columns: 1fr;

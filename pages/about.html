@@ -54,6 +54,61 @@
   </section>
 
   <section class="about-grid">
+    <div class="card projects-card featured-projects-card">
+      <div class="featured-projects-head">
+        <div>
+          <p class="archive-kicker">Project Highlight</p>
+          <h2>경력 기술</h2>
+        </div>
+        <p class="featured-projects-copy">운영 중인 사이트와 종료된 프로젝트 아카이브를 한 번에 볼 수 있도록 상단에 배치했습니다.</p>
+      </div>
+
+      <div class="featured-projects-layout">
+        <div class="featured-projects-block">
+          <p class="archive-kicker">Live Projects</p>
+          <ul class="link-list">
+            <li><a href="https://dyauto.songdk.kro.kr/" target="_blank" rel="noopener">덕양산업</a></li>
+            <li><a href="http://www.webeauty.co.kr/" target="_blank" rel="noopener">위뷰티</a></li>
+            <li><a href="https://twrecordsseoul.com/" target="_blank" rel="noopener">TW RECORDS</a></li>
+            <li><a href="https://baekabioty.songdk.kro.kr/" target="_blank" rel="noopener">백아바이오티</a></li>
+            <li><a href="http://www.mdshi.com/" target="_blank" rel="noopener">대상중공업</a></li>
+            <li><a href="http://www.flowone.co.kr/" target="_blank" rel="noopener">플로원</a></li>
+            <li><a href="https://www.korvan.net/" target="_blank" rel="noopener">Korvan</a></li>
+            <li><a href="http://www.hepabest.com/" target="_blank" rel="noopener">이앤에치</a></li>
+          </ul>
+        </div>
+
+        <div class="featured-projects-block">
+          <div class="archive-preview-head compact">
+            <div>
+              <p class="archive-kicker">Archive</p>
+              <h3>종료된 프로젝트</h3>
+            </div>
+            <button type="button" class="archive-open-btn" ng-click="openArchiveModal(0)">More</button>
+          </div>
+          <div class="archive-preview-grid">
+            <button
+              type="button"
+              class="archive-preview-card"
+              ng-repeat="project in archivePreviewProjects track by $index"
+              ng-click="openArchiveModal($index)"
+            >
+              <div class="archive-preview-image">
+                <img ng-if="project.image" ng-src="{{imgSrc + project.image}}" alt="{{project.title}}">
+                <div class="archive-placeholder" ng-if="!project.image">
+                  <span>{{project.title}}</span>
+                </div>
+              </div>
+              <strong>{{project.title}}</strong>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="sub-note">다수 기업형 홈페이지 웹퍼블리싱</p>
+      <p class="sub-note">웹 개발: <a href="https://story.mint05.com" target="_blank">에듀서브(https://story.mint05.com)</a> 유지보수 및 기능단위 프로젝트</p>
+    </div>
+
     <div class="card profile-card">
       <h2>프로필</h2>
       <ul class="info-list">
@@ -119,45 +174,6 @@
       </div>
     </div>
 
-    <div class="card projects-card">
-      <h2>경력 기술</h2>
-      <ul class="link-list">
-        <li><a href="https://dyauto.songdk.kro.kr/" target="_blank" rel="noopener">덕양산업</a></li>
-        <li><a href="http://www.webeauty.co.kr/" target="_blank" rel="noopener">위뷰티</a></li>
-        <li><a href="https://twrecordsseoul.com/" target="_blank">TW RECORDS</a></li>
-        <li><a href="https://baekabioty.songdk.kro.kr/" target="_blank" rel="noopener">백아바이오티</a></li>
-        <li><a href="http://www.mdshi.com/" target="_blank" rel="noopener">대상중공업</a></li>
-        <li><a href="http://www.flowone.co.kr/" target="_blank" rel="noopener">플로원</a></li>
-        <li><a href="https://www.korvan.net/" target="_blank" rel="noopener">Korvan</a></li>
-        <li><a href="http://www.hepabest.com/" target="_blank" rel="noopener">이앤에치</a></li>
-      </ul>
-      <div class="archive-preview-head">
-        <div>
-          <p class="archive-kicker">Archive</p>
-          <h3>종료된 프로젝트</h3>
-        </div>
-        <button type="button" class="archive-open-btn" ng-click="openArchiveModal(0)">More</button>
-      </div>
-      <div class="archive-preview-grid">
-        <button
-          type="button"
-          class="archive-preview-card"
-          ng-repeat="project in archivePreviewProjects track by $index"
-          ng-click="openArchiveModal($index)"
-        >
-          <div class="archive-preview-image">
-            <img ng-if="project.image" ng-src="{{imgSrc + project.image}}" alt="{{project.title}}">
-            <div class="archive-placeholder" ng-if="!project.image">
-              <span>{{project.title}}</span>
-            </div>
-          </div>
-          <strong>{{project.title}}</strong>
-        </button>
-      </div>
-      <p class="sub-note">다수 기업형 홈페이지 웹퍼블리싱</p>
-      <p class="sub-note">웹 개발: 에듀서브(https://story.mint05.com/main) 유지보수 및 기능단위 프로젝트</p>
-    </div>
-
     <div class="card motivation-card">
       <h2>지원동기 및 포부</h2>
       <ul class="bullet-list">
@@ -203,7 +219,7 @@
               <div class="archive-slide-copy">
                 <p class="archive-kicker">Archived Project</p>
                 <h4>{{project.title}}</h4>
-                <p>운영 종료로 링크는 비활성 상태지만, 작업물 이미지를 중심으로 경력 기술을 확인할 수 있도록 준비된 프로젝트입니다.</p>
+                <p>운영 종료로 링크는 비활성 상태입니다만, 100% 퍼블리싱 참여 작업물입니다.</p>
                 <p class="archive-counter">{{archiveIndex + 1}} / {{archivedProjects.length}}</p>
               </div>
             </article>
@@ -221,6 +237,24 @@
           ng-click="goToArchiveSlide($index)"
           aria-label="{{project.title}} 보기"
         ></button>
+      </div>
+
+      <div class="archive-thumbnail-grid">
+        <button
+          type="button"
+          class="archive-thumbnail-card"
+          ng-repeat="project in archivedProjects track by $index"
+          ng-class="{ active: archiveIndex === $index }"
+          ng-click="goToArchiveSlide($index)"
+        >
+          <div class="archive-thumbnail-image">
+            <img ng-if="project.image" ng-src="{{imgSrc + project.image}}" alt="{{project.title}}">
+            <div class="archive-placeholder thumb" ng-if="!project.image">
+              <span>{{project.title}}</span>
+            </div>
+          </div>
+          <strong>{{project.title}}</strong>
+        </button>
       </div>
     </div>
   </div>
