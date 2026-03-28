@@ -2,51 +2,106 @@ app.controller('PHPDevController', ['$scope', '$http', '$interval', function ($s
     $scope.posts = [];
     $scope.showWriteForm = false;
     $scope.selectedPost = null;
+    $scope.showSubmitResultModal = false;
+    $scope.submitResultMessage = '';
     $scope.newPost = { title: '', author: '', content: '' };
     $scope.submitting = false;
+    $scope.currentPage = 1;
+    $scope.pageSize = 10;
+    $scope.totalPages = 1;
+    $scope.totalItems = 0;
+    $scope.pageNumbers = [];
 
-    const apiUrl = (window.location.hostname === 'portfolio.localhost' || window.location.hostname === 'localhost') 
-        ? 'http://api.localhost/public/index.php/board' 
+    const apiUrl = (window.location.hostname === 'portfolio.localhost' || window.location.hostname === 'localhost')
+        ? 'http://api.localhost/public/index.php/board'
         : 'https://api.songdk.kro.kr/board';
 
-    // 게시글 목록 조회
+    $scope.updatePageNumbers = function() {
+        var startPage = Math.floor(($scope.currentPage - 1) / 10) * 10 + 1;
+        var endPage = Math.min(startPage + 9, $scope.totalPages);
+        var pages = [];
+
+        for (var page = startPage; page <= endPage; page += 1) {
+            pages.push(page);
+        }
+
+        $scope.pageNumbers = pages;
+    };
+
+    $scope.goToPage = function(page) {
+        if (page < 1 || page > $scope.totalPages || page === $scope.currentPage) {
+            return;
+        }
+
+        $scope.currentPage = page;
+        $scope.fetchPosts();
+    };
+
+    $scope.prevPage = function() {
+        $scope.goToPage($scope.currentPage - 1);
+    };
+
+    $scope.nextPage = function() {
+        $scope.goToPage($scope.currentPage + 1);
+    };
+
     $scope.fetchPosts = function() {
-        $http.get(apiUrl).then(function(response) {
-            $scope.posts = response.data;
+        $http.get(apiUrl, {
+            params: {
+                page: $scope.currentPage,
+                perPage: $scope.pageSize
+            }
+        }).then(function(response) {
+            var payload = response.data || {};
+            var pagination = payload.pagination || {};
+
+            $scope.posts = (payload.data || []).map(function(post) {
+                post.id = Number(post.id);
+                return post;
+            });
+            $scope.totalItems = Number(pagination.total || 0);
+            $scope.totalPages = Math.max(1, Number(pagination.totalPages || 1));
+            $scope.currentPage = Number(pagination.page || $scope.currentPage);
+            $scope.pageSize = Number(pagination.perPage || 10);
+            $scope.updatePageNumbers();
         });
     };
 
-    // 상세 보기
     $scope.viewPost = function(post) {
         $scope.selectedPost = post;
     };
 
-    // 게시글 작성
+    $scope.closeSubmitResultModal = function() {
+        $scope.showSubmitResultModal = false;
+        $scope.submitResultMessage = '';
+    };
+
     $scope.submitPost = function() {
         if ($scope.submitting) return;
         $scope.submitting = true;
 
-        $http.post(apiUrl, $scope.newPost).then(function(response) {
+        $http.post(apiUrl, $scope.newPost).then(function() {
             $scope.showWriteForm = false;
             $scope.newPost = { title: '', author: '', content: '' };
-            $scope.fetchPosts(); 
-            alert('글이 등록되었습니다. 서버에서 AI 답글을 생성하고 있습니다!');
+            $scope.currentPage = 1;
+            $scope.fetchPosts();
+            $scope.submitResultMessage = '글이 등록되었습니다. AI 답변 생성도 시작됐습니다.';
+            $scope.showSubmitResultModal = true;
         }).catch(function(error) {
-            alert('등록에 실패했습니다.');
+            $scope.submitResultMessage = '글 등록에 실패했습니다. 잠시 후 다시 시도해 주세요.';
+            $scope.showSubmitResultModal = true;
             console.error(error);
         }).finally(function() {
             $scope.submitting = false;
         });
     };
 
-    // 주기적으로 답변 상태 체크 (폴링)
     var pollingTimer = $interval(function() {
-        // 답변 대기 중인 글이 하나라도 있다면 리프레시
-        var pendingExists = $scope.posts.some(function(p) { return !p.reply; });
+        var pendingExists = $scope.posts.some(function(post) { return !post.reply; });
         if (pendingExists) {
             $scope.fetchPosts();
         }
-    }, 3000); // 3초 간격
+    }, 3000);
 
     $scope.$on('$destroy', function() {
         if (angular.isDefined(pollingTimer)) {
@@ -54,6 +109,5 @@ app.controller('PHPDevController', ['$scope', '$http', '$interval', function ($s
         }
     });
 
-    // 초기 로드
     $scope.fetchPosts();
 }]);
