@@ -20,15 +20,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             controller: 'PHPDevController'
         })
         .when('/about', {
-            templateUrl: 'pages/about.html',
-            resolve: {
-                loadMyFiles: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        '/assets/js/about.js',
-                    ]);
-                }]
-            },
-            controller: 'AboutController'
+            templateUrl: 'pages/about.html'
         })
         .otherwise({
             redirectTo: '/'

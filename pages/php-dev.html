@@ -1,81 +1,110 @@
-<div class="dashboard-container">
-    <aside class="sidebar">
-        <h2 style="margin-bottom: 30px; font-size: 1.2rem; opacity: 0.8;">PHP Projects</h2>
-        <ul style="list-style: none;">
-            <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 600;">AI Board</a></li>
-            <li style="margin-bottom: 15px; opacity: 0.5;"><a href="#" style="color: #fff; text-decoration: none; font-size: 0.9rem;">API Monitor</a></li>
-            <li style="margin-bottom: 15px; opacity: 0.5;"><a href="#" style="color: #fff; text-decoration: none; font-size: 0.9rem;">DB Manager</a></li>
-        </ul>
+﻿<div class="dashboard-container">
+    <aside class="sidebar dashboard-sidebar">
+        <div class="sidebar-shell">
+            <p class="sidebar-kicker">PHP Development</p>
+            <h2 class="sidebar-title">Projects</h2>
+            <p class="sidebar-copy">유지보수와 기능 단위 프로젝트 경험을 포트폴리오 형태로 정리한 영역입니다.</p>
+
+            <ul class="sidebar-menu">
+                <li class="active"><a href="" ng-click="$event.preventDefault()">AI Board</a></li>
+                <li class="disabled"><a href="" ng-click="$event.preventDefault()">-</a></li>
+                <li class="disabled"><a href="" ng-click="$event.preventDefault()">-</a></li>
+            </ul>
+
+            <div class="sidebar-note">
+                <strong>Current</strong>
+                <span>Google Gemini API를 활용한 자동 응답 게시판</span>
+            </div>
+        </div>
     </aside>
 
-    <main class="main-content">
-        <header style="margin-bottom: 40px;">
-            <h1 style="font-size: 2.2rem; margin-bottom: 10px;">AI 자동 응답 게시판</h1>
-            <p style="color: #666; font-size: 1.1rem;">Google Gemini API를 연동해 질문을 등록하면 AI 답변을 받아볼 수 있는 게시판입니다.</p>
+    <main class="main-content dashboard-main">
+        <header class="dashboard-hero">
+            <p class="dashboard-kicker">Editorial Dashboard</p>
+            <h1>AI 자동 응답 게시판</h1>
+            <p class="dashboard-summary">
+                Google Gemini API를 연동해 질문을 등록하면 AI 답변을 받아볼 수 있는 게시판입니다.
+                <br>저에 대해 궁금한 점을 마음껏 질문 해주세요! (ex: 나이, 사는곳, 경력, 기술 등)
+            </p>
         </header>
 
-        <section class="card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
-                <h3 style="font-size: 1.2rem;">게시글 목록</h3>
-                <button ng-click="showWriteForm = true" style="background: #1e3c72; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer;">글쓰기</button>
+        <section class="card dashboard-card">
+            <div class="card-head">
+                <div>
+                    <p class="card-kicker">Board Feed</p>
+                    <h3>게시글 목록</h3>
+                </div>
+                <button class="dashboard-btn primary" ng-click="showWriteForm = true">글쓰기</button>
             </div>
 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th style="width: 80px;">번호</th>
-                        <th>제목</th>
-                        <th style="width: 150px;">작성자</th>
-                        <th style="width: 150px;">작성일</th>
-                        <th style="width: 120px;">상태</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="post in posts track by post.id">
-                        <td>{{post.id}}</td>
-                        <td>
-                            <a href="#" ng-click="viewPost(post)" style="color: #1e3c72; text-decoration: none; font-weight: 600;">{{post.title}}</a>
-                        </td>
-                        <td>{{post.author}}</td>
-                        <td>{{post.created_at | date:'yyyy-MM-dd'}}</td>
-                        <td>
-                            <span class="status-badge" ng-class="post.reply ? 'status-done' : 'status-waiting'">
-                                <i ng-if="!post.reply" class="fas fa-spinner fa-spin"></i>
-                                {{post.reply ? '답변 완료' : '답변 대기'}}
-                            </span>
-                        </td>
-                    </tr>
-                    <tr ng-if="posts.length === 0">
-                        <td colspan="5" style="text-align: center; padding: 50px; color: #999;">작성된 게시글이 없습니다.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-wrap">
+                <table class="table dashboard-table">
+                    <thead>
+                        <tr>
+                            <th class="col-id">번호</th>
+                            <th>제목</th>
+                            <th class="col-author">작성자</th>
+                            <th class="col-date">작성일</th>
+                            <th class="col-status">상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="post in posts track by post.id">
+                            <td>{{post.id}}</td>
+                            <td>
+                                <a href="" class="post-link" ng-click="viewPost(post); $event.preventDefault()">{{post.title}}</a>
+                            </td>
+                            <td>{{post.author}}</td>
+                            <td>{{post.created_at | date:'yyyy-MM-dd'}}</td>
+                            <td>
+                                <span class="status-badge" ng-class="post.reply ? 'status-done' : 'status-waiting'">
+                                    <i ng-if="!post.reply" class="fas fa-spinner fa-spin"></i>
+                                    {{post.reply ? '답변 완료' : '답변 대기'}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr ng-if="posts.length === 0">
+                            <td colspan="5" class="empty-row">작성된 게시글이 없습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <div ng-if="totalItems > pageSize" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 24px; flex-wrap: wrap;">
-                <button ng-click="prevPage()" ng-disabled="currentPage === 1" style="background: #fff; border: 1px solid #d0d7e2; padding: 8px 14px; border-radius: 8px; cursor: pointer;">이전</button>
-                <button ng-repeat="page in pageNumbers track by page" ng-click="goToPage(page)" ng-style="page === currentPage && {'background':'#1e3c72','color':'#fff','border-color':'#1e3c72'}" style="background: #fff; border: 1px solid #d0d7e2; min-width: 40px; padding: 8px 12px; border-radius: 8px; cursor: pointer;">
+            <div class="dashboard-pagination" ng-if="totalItems > pageSize">
+                <button class="page-btn" ng-click="prevPage()" ng-disabled="currentPage === 1">이전</button>
+                <button class="page-btn" ng-repeat="page in pageNumbers track by page" ng-click="goToPage(page)" ng-class="{ active: page === currentPage }">
                     {{page}}
                 </button>
-                <button ng-click="nextPage()" ng-disabled="currentPage === totalPages" style="background: #fff; border: 1px solid #d0d7e2; padding: 8px 14px; border-radius: 8px; cursor: pointer;">다음</button>
+                <button class="page-btn" ng-click="nextPage()" ng-disabled="currentPage === totalPages">다음</button>
             </div>
         </section>
 
-        <div class="modal" ng-show="showWriteForm" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;">
-            <div class="card" style="width: 500px; position: relative;">
-                <h3 style="margin-bottom: 20px;">AI 질문하기</h3>
-                <form ng-submit="submitPost()">
-                    <div style="margin-bottom: 15px;">
-                        <input type="text" ng-model="newPost.title" placeholder="제목을 입력하세요" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+        <div class="modal-shell" ng-show="showWriteForm">
+            <div class="card modal-card form-modal">
+                <div class="modal-head">
+                    <div>
+                        <p class="card-kicker">Compose</p>
+                        <h3>AI 질문 등록</h3>
                     </div>
-                    <div style="margin-bottom: 15px;">
-                        <input type="text" ng-model="newPost.author" placeholder="작성자명을 입력하세요" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+                    <button type="button" class="icon-close" ng-click="showWriteForm = false">닫기</button>
+                </div>
+
+                <form class="dashboard-form" ng-submit="submitPost()">
+                    <div class="field-group">
+                        <label for="post-title">제목</label>
+                        <input id="post-title" type="text" ng-model="newPost.title" placeholder="제목을 입력하세요." required>
                     </div>
-                    <div style="margin-bottom: 20px;">
-                        <textarea ng-model="newPost.content" placeholder="질문 내용을 입력하세요. AI가 자동으로 답변을 생성합니다." style="width: 100%; height: 200px; padding: 12px; border: 1px solid #ddd; border-radius: 6px; resize: none;" required></textarea>
+                    <div class="field-group">
+                        <label for="post-author">작성자</label>
+                        <input id="post-author" type="text" ng-model="newPost.author" placeholder="작성자명을 입력하세요." required>
                     </div>
-                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
-                        <button type="button" ng-click="showWriteForm = false" style="background: #eee; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">취소</button>
-                        <button type="submit" ng-disabled="submitting" style="background: #1e3c72; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                    <div class="field-group">
+                        <label for="post-content">질문 내용</label>
+                        <textarea id="post-content" ng-model="newPost.content" placeholder="질문 내용을 입력하세요. 등록 후 AI 답변이 생성됩니다." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="dashboard-btn secondary" ng-click="showWriteForm = false">취소</button>
+                        <button type="submit" class="dashboard-btn primary" ng-disabled="submitting">
                             {{submitting ? '등록 중...' : '등록'}}
                         </button>
                     </div>
@@ -83,29 +112,35 @@
             </div>
         </div>
 
-        <div class="modal" ng-show="showSubmitResultModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1100; display: flex; align-items: center; justify-content: center;">
-            <div class="card" style="width: 420px; text-align: center;">
-                <h3 style="margin-bottom: 16px;">알림</h3>
-                <p style="line-height: 1.6; color: #555; margin-bottom: 24px;">{{submitResultMessage}}</p>
-                <button ng-click="closeSubmitResultModal()" style="background: #1e3c72; color: #fff; border: none; padding: 10px 24px; border-radius: 8px; cursor: pointer;">확인</button>
+        <div class="modal-shell" ng-show="showSubmitResultModal">
+            <div class="card modal-card result-modal">
+                <p class="card-kicker">Notice</p>
+                <h3>알림</h3>
+                <p class="result-message">{{submitResultMessage}}</p>
+                <button class="dashboard-btn primary" ng-click="closeSubmitResultModal()">확인</button>
             </div>
         </div>
 
-        <div class="modal" ng-show="selectedPost" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;">
-            <div class="card" style="width: 700px; max-height: 80vh; overflow-y: auto;">
-                <h2 style="margin-bottom: 10px;">{{selectedPost.title}}</h2>
-                <div style="font-size: 0.9rem; color: #999; margin-bottom: 20px;">
-                    작성자 {{selectedPost.author}} | 작성일 {{selectedPost.created_at}}
-                </div>
-                <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; line-height: 1.6; margin-bottom: 30px; white-space: pre-wrap;">{{selectedPost.content}}</div>
-
-                <div ng-if="selectedPost.reply" style="border-top: 2px solid #1e3c72; padding-top: 20px;">
-                    <h4 style="color: #1e3c72; margin-bottom: 15px;">AI Assistant 답변</h4>
-                    <div style="background: #eef2f7; padding: 20px; border-radius: 8px; line-height: 1.6; white-space: pre-wrap;">{{selectedPost.reply}}</div>
+        <div class="modal-shell" ng-show="selectedPost">
+            <div class="card modal-card detail-modal">
+                <div class="detail-head">
+                    <div>
+                        <p class="card-kicker">Board Detail</p>
+                        <h2>{{selectedPost.title}}</h2>
+                    </div>
+                    <button type="button" class="icon-close" ng-click="selectedPost = null">닫기</button>
                 </div>
 
-                <div style="text-align: right; margin-top: 30px;">
-                    <button ng-click="selectedPost = null" style="background: #333; color: #fff; border: none; padding: 10px 25px; border-radius: 6px; cursor: pointer;">닫기</button>
+                <div class="detail-meta">
+                    <span>작성자 {{selectedPost.author}}</span>
+                    <span>작성일 {{selectedPost.created_at}}</span>
+                </div>
+
+                <div class="detail-block">{{selectedPost.content}}</div>
+
+                <div class="detail-reply" ng-if="selectedPost.reply">
+                    <h4>AI Assistant 답변</h4>
+                    <div class="detail-block reply">{{selectedPost.reply}}</div>
                 </div>
             </div>
         </div>
