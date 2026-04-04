@@ -1,0 +1,150 @@
+﻿<div class="dashboard-container">
+    <aside class="sidebar dashboard-sidebar" ng-include="'pages/partials/php-dev-sidebar.html'"></aside>
+
+    <main class="main-content dashboard-main">
+        <section class="saramin-page">
+            <header class="saramin-hero">
+                <div class="saramin-hero-copy">
+                    <p class="saramin-kicker">Recruitment API Integration</p>
+                    <h1>사람인 채용정보 연동 레이아웃</h1>
+                    <p class="saramin-summary">
+                        사람인 API로 수집한 채용 공고를 서비스 화면에 안정적으로 노출하기 위한 프론트 레이아웃입니다.
+                        검색, 요약 카드, 연동 포인트를 한 화면에서 바로 확인할 수 있도록 구성했습니다.
+                    </p>
+                </div>
+                <div class="saramin-hero-panel">
+                    <span class="saramin-panel-label">Integration Focus</span>
+                    <strong>공고 탐색 + 상세 확인 + API 연결 포인트 정리</strong>
+                    <p>추후 실제 응답 데이터만 연결하면 채용 리스트 화면으로 자연스럽게 확장할 수 있습니다.</p>
+                </div>
+            </header>
+
+            <section class="saramin-powered-banner" aria-label="사람인 제공 채용정보 안내">
+                <strong>Powered by <a href="http://www.saramin.co.kr" target="_blank" rel="noopener">취업 사람인</a></strong>
+                <p>본 화면의 채용정보는 사람인에서 제공한 채용정보임을 명확히 안내하기 위해 상단에 강조 노출했습니다.</p>
+            </section>
+
+            <section class="saramin-filter-card">
+                <div class="saramin-filter-head">
+                    <div>
+                        <p class="saramin-section-kicker">Search UI</p>
+                        <h2>채용정보 탐색</h2>
+                    </div>
+                    <span class="saramin-live-chip">API Ready Layout</span>
+                </div>
+
+                <div class="saramin-filter-grid">
+                    <label class="saramin-field">
+                        <span>키워드</span>
+                        <input type="text" placeholder="예: PHP, 백엔드, CodeIgniter">
+                    </label>
+                    <label class="saramin-field">
+                        <span>지역</span>
+                        <select>
+                            <option>전체 지역</option>
+                            <option>서울</option>
+                            <option>경기</option>
+                            <option>인천</option>
+                        </select>
+                    </label>
+                    <label class="saramin-field">
+                        <span>경력</span>
+                        <select>
+                            <option>전체</option>
+                            <option>신입</option>
+                            <option>경력</option>
+                            <option>경력무관</option>
+                        </select>
+                    </label>
+                    <button type="button" class="saramin-search-btn">채용공고 보기</button>
+                </div>
+            </section>
+
+            <section class="saramin-content-grid">
+                <article class="saramin-card saramin-list-card">
+                    <div class="saramin-card-head">
+                        <div>
+                            <p class="saramin-section-kicker">Job Feed</p>
+                            <h2>추천 채용공고</h2>
+                        </div>
+                        <span class="saramin-count-badge">12 Results</span>
+                    </div>
+
+                    <div class="saramin-job-list">
+                        <article class="saramin-job-item featured">
+                            <div class="saramin-job-top">
+                                <span class="saramin-company">사람인 API 샘플 기업</span>
+                                <span class="saramin-tag accent">D-7</span>
+                            </div>
+                            <h3>PHP 백엔드 개발자</h3>
+                            <p>CodeIgniter 기반 유지보수와 신규 기능 개발 경험자를 찾고 있습니다.</p>
+                            <div class="saramin-meta">
+                                <span>서울 구로구</span>
+                                <span>경력 2년 이상</span>
+                                <span>정규직</span>
+                            </div>
+                        </article>
+
+                        <article class="saramin-job-item">
+                            <div class="saramin-job-top">
+                                <span class="saramin-company">채용 연동 테스트 기업</span>
+                                <span class="saramin-tag">오늘마감</span>
+                            </div>
+                            <h3>웹 퍼블리셔 겸 프론트엔드</h3>
+                            <p>운영 화면 개선과 반응형 UI 작업을 담당할 실무형 인재를 모집합니다.</p>
+                            <div class="saramin-meta">
+                                <span>인천</span>
+                                <span>경력무관</span>
+                                <span>계약직</span>
+                            </div>
+                        </article>
+
+                        <article class="saramin-job-item">
+                            <div class="saramin-job-top">
+                                <span class="saramin-company">프로젝트 협업 기업</span>
+                                <span class="saramin-tag">D-14</span>
+                            </div>
+                            <h3>API 연동 담당 웹 개발자</h3>
+                            <p>외부 채용 API 연동과 관리자 페이지 유지보수 업무를 진행합니다.</p>
+                            <div class="saramin-meta">
+                                <span>경기 부천</span>
+                                <span>경력 1년 이상</span>
+                                <span>정규직</span>
+                            </div>
+                        </article>
+                    </div>
+                </article>
+
+                <aside class="saramin-side-stack">
+                    <article class="saramin-card saramin-highlight-card">
+                        <p class="saramin-section-kicker">Compliance Notice</p>
+                        <h2>사람인 제공 정보 표기 강조</h2>
+                        <p>
+                            상단 배너에서 사람인 제공 채용정보임을 먼저 안내하고, 상세 페이지나 리스트 상단에서도 동일 문구를 반복 노출할 수 있게 설계했습니다.
+                        </p>
+                    </article>
+
+                    <article class="saramin-card saramin-flow-card">
+                        <p class="saramin-section-kicker">Display Flow</p>
+                        <h2>연동 후 화면 흐름</h2>
+                        <ol class="saramin-flow-list">
+                            <li>검색 조건 입력 후 API 요청</li>
+                            <li>채용공고 카드 리스트 렌더링</li>
+                            <li>상세 보기 또는 외부 공고 이동</li>
+                        </ol>
+                    </article>
+
+                    <article class="saramin-card saramin-spec-card">
+                        <p class="saramin-section-kicker">API Mapping</p>
+                        <h2>매핑 예상 필드</h2>
+                        <ul class="saramin-spec-list">
+                            <li>회사명 / 공고제목</li>
+                            <li>근무지역 / 경력 / 고용형태</li>
+                            <li>마감일 / 상세 링크 / 로고 이미지</li>
+                        </ul>
+                    </article>
+                </aside>
+            </section>
+        </section>
+    </main>
+</div>

@@ -19,6 +19,9 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             },
             controller: 'PHPDevController'
         })
+        .when('/saramin-dev', {
+            templateUrl: 'pages/saramin-dev.html'
+        })
         .when('/about', {
             templateUrl: 'pages/about.html'
         })

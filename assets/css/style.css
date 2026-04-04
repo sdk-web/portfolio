@@ -620,6 +620,327 @@ nav a.active {
     background: rgba(182, 129, 45, 0.08);
 }
 
+.saramin-page {
+    display: grid;
+    gap: 24px;
+}
+
+.saramin-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.saramin-hero-copy,
+.saramin-hero-panel,
+.saramin-filter-card,
+.saramin-card,
+.saramin-powered-banner {
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+}
+
+.saramin-hero-copy {
+    padding: 34px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(249, 163, 26, 0.16), transparent 30%),
+        linear-gradient(135deg, rgba(255, 251, 245, 0.95), rgba(248, 242, 232, 0.92));
+}
+
+.saramin-kicker,
+.saramin-section-kicker {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9a641c;
+}
+
+.saramin-kicker {
+    margin-bottom: 16px;
+}
+
+.saramin-hero-copy h1,
+.saramin-card h2,
+.saramin-filter-head h2 {
+    font-family: 'Unbounded', sans-serif;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.saramin-hero-copy h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 16px;
+}
+
+.saramin-summary,
+.saramin-hero-panel p,
+.saramin-card p,
+.saramin-job-item p,
+.saramin-meta,
+.saramin-powered-banner p,
+.saramin-flow-list li,
+.saramin-spec-list li {
+    line-height: 1.85;
+    color: #5f5346;
+}
+
+.saramin-summary {
+    max-width: 720px;
+    font-size: 1rem;
+}
+
+.saramin-hero-panel {
+    display: grid;
+    gap: 16px;
+    align-content: center;
+    padding: 30px;
+    background: linear-gradient(180deg, rgba(26, 24, 21, 0.96), rgba(44, 36, 27, 0.94));
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.saramin-panel-label {
+    display: inline-flex;
+    width: fit-content;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffd492;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.saramin-hero-panel strong {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.saramin-hero-panel p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.saramin-powered-banner {
+    display: grid;
+    gap: 10px;
+    padding: 22px 26px;
+    background: linear-gradient(135deg, #fff7dc, #ffe8b8);
+    border-color: rgba(191, 129, 24, 0.28);
+}
+
+.saramin-powered-banner strong {
+    font-size: clamp(1rem, 2.2vw, 1.28rem);
+    line-height: 1.6;
+    color: #5e3e02;
+}
+
+.saramin-powered-banner a {
+    color: #8a4f00;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.saramin-filter-card,
+.saramin-card {
+    padding: 28px 30px;
+    background: rgba(255, 255, 255, 0.84);
+}
+
+.saramin-filter-head,
+.saramin-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.saramin-live-chip,
+.saramin-count-badge,
+.saramin-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.saramin-live-chip {
+    background: rgba(191, 129, 24, 0.12);
+    color: #965d0e;
+}
+
+.saramin-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.saramin-field {
+    display: grid;
+    gap: 8px;
+}
+
+.saramin-field span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #453b32;
+}
+
+.saramin-field input,
+.saramin-field select {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 16px;
+    border: 1px solid rgba(20, 20, 20, 0.12);
+    border-radius: 16px;
+    background: #fffdfa;
+    color: #1a1713;
+    font: inherit;
+}
+
+.saramin-search-btn {
+    align-self: end;
+    min-height: 50px;
+    border: 0;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #1c1813, #48321b);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.saramin-search-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 24px rgba(39, 27, 14, 0.18);
+}
+
+.saramin-content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 24px;
+}
+
+.saramin-list-card {
+    margin-bottom: 0;
+}
+
+.saramin-job-list,
+.saramin-side-stack {
+    display: grid;
+    gap: 16px;
+}
+
+.saramin-job-item {
+    display: grid;
+    gap: 12px;
+    padding: 22px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 241, 232, 0.9));
+    border: 1px solid rgba(20, 20, 20, 0.08);
+}
+
+.saramin-job-item.featured {
+    border-color: rgba(191, 129, 24, 0.28);
+    box-shadow: 0 18px 34px rgba(191, 129, 24, 0.1);
+}
+
+.saramin-job-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.saramin-company {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #7b5b30;
+}
+
+.saramin-job-item h3 {
+    font-size: 1.16rem;
+    line-height: 1.5;
+    color: #1b1713;
+}
+
+.saramin-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.92rem;
+}
+
+.saramin-meta span {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(20, 20, 20, 0.05);
+}
+
+.saramin-count-badge,
+.saramin-tag {
+    background: rgba(20, 20, 20, 0.08);
+    color: #3f362d;
+}
+
+.saramin-tag.accent {
+    background: rgba(191, 129, 24, 0.14);
+    color: #9a641c;
+}
+
+.saramin-flow-list,
+.saramin-spec-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.saramin-flow-list {
+    counter-reset: saramin-flow;
+}
+
+.saramin-flow-list li {
+    position: relative;
+    padding-left: 44px;
+}
+
+.saramin-flow-list li::before {
+    counter-increment: saramin-flow;
+    content: counter(saramin-flow);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: rgba(191, 129, 24, 0.12);
+    color: #8b560a;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.saramin-spec-list li {
+    position: relative;
+    padding-left: 18px;
+}
+
+.saramin-spec-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #b6812d;
+}
+
 .about-page {
     min-height: 100vh;
     padding: 126px 7vw 88px;
@@ -1351,6 +1672,12 @@ nav a.active {
         padding-top: 138px;
     }
 
+    .saramin-hero,
+    .saramin-content-grid,
+    .saramin-filter-grid {
+        grid-template-columns: 1fr;
+    }
+
     .dashboard-sidebar {
         position: static;
     }
@@ -1385,6 +1712,26 @@ nav a.active {
 
     .dashboard-container {
         padding: 150px 5vw 72px;
+    }
+
+    .saramin-hero-copy,
+    .saramin-hero-panel,
+    .saramin-filter-card,
+    .saramin-card,
+    .saramin-powered-banner {
+        padding: 24px 22px;
+        border-radius: 22px;
+    }
+
+    .saramin-filter-head,
+    .saramin-card-head,
+    .saramin-job-top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .saramin-search-btn {
+        width: 100%;
     }
 
     .hero-name {

@@ -1,0 +1,22 @@
+<div class="sidebar-shell">
+    <p class="sidebar-kicker">PHP Development</p>
+    <h2 class="sidebar-title">Projects</h2>
+    <p class="sidebar-copy">유지보수와 기능 단위 프로젝트 경험을 포트폴리오 형태로 정리한 영역입니다.</p>
+
+    <ul class="sidebar-menu">
+        <li ng-class="{ active: currentPath === '/php-dev' }">
+            <a href="/php-dev" ng-click="currentPath === '/php-dev' && $event.preventDefault()">AI Board</a>
+        </li>
+        <!-- <li ng-class="{ active: currentPath === '/saramin-dev' }">
+            <a href="/saramin-dev" ng-click="currentPath === '/saramin-dev' && $event.preventDefault()">Saramin API</a>
+        </li> -->
+        <li class="disabled"><a href="" ng-click="$event.preventDefault()">-</a></li>
+        <li class="disabled"><a href="" ng-click="$event.preventDefault()">-</a></li>
+    </ul>
+
+    <div class="sidebar-note">
+        <strong>Current</strong>
+        <span ng-if="currentPath === '/saramin-dev'">사람인 API 연동을 위한 채용정보 프론트 레이아웃</span>
+        <span ng-if="currentPath !== '/saramin-dev'">Google Gemini API를 활용한 자동 응답 게시판</span>
+    </div>
+</div>

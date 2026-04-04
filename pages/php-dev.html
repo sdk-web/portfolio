@@ -1,22 +1,5 @@
 ﻿<div class="dashboard-container">
-    <aside class="sidebar dashboard-sidebar">
-        <div class="sidebar-shell">
-            <p class="sidebar-kicker">PHP Development</p>
-            <h2 class="sidebar-title">Projects</h2>
-            <p class="sidebar-copy">유지보수와 기능 단위 프로젝트 경험을 포트폴리오 형태로 정리한 영역입니다.</p>
-
-            <ul class="sidebar-menu">
-                <li class="active"><a href="" ng-click="$event.preventDefault()">AI Board</a></li>
-                <li class="disabled"><a href="" ng-click="$event.preventDefault()">-</a></li>
-                <li class="disabled"><a href="" ng-click="$event.preventDefault()">-</a></li>
-            </ul>
-
-            <div class="sidebar-note">
-                <strong>Current</strong>
-                <span>Google Gemini API를 활용한 자동 응답 게시판</span>
-            </div>
-        </div>
-    </aside>
+    <aside class="sidebar dashboard-sidebar" ng-include="'pages/partials/php-dev-sidebar.html'"></aside>
 
     <main class="main-content dashboard-main">
         <header class="dashboard-hero">

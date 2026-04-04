@@ -55,7 +55,7 @@
 
         if ($scope.isHome) {
             $scope.bodyClass = 'home-active';
-        } else if ($scope.currentPath === '/php-dev') {
+        } else if ($scope.currentPath === '/php-dev' || $scope.currentPath === '/saramin-dev') {
             $scope.bodyClass = 'php-dev-active';
         } else {
             $scope.bodyClass = 'sub-page-active';
