@@ -1172,6 +1172,171 @@ nav a.active {
     gap: 26px;
 }
 
+.career-stack-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 26px;
+}
+
+.career-section {
+    display: grid;
+    gap: 18px;
+    padding: 24px;
+    border-radius: 24px;
+    border: 1px solid rgba(20, 20, 20, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 239, 230, 0.88));
+}
+
+.career-section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 16px;
+}
+
+.career-section-head h3 {
+    margin-top: 8px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.5;
+}
+
+.career-section-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 54px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(182, 129, 45, 0.12);
+    color: #7a5519;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.career-section-copy {
+    margin: 0;
+    font-size: 0.96rem;
+    line-height: 1.8;
+    color: #625649;
+}
+
+.publishing-career-section {
+    gap: 14px;
+}
+
+.publishing-career-section .career-section-copy {
+    max-width: 620px;
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+.publishing-career-section .featured-projects-layout {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.publishing-career-section .featured-projects-block {
+    gap: 12px;
+    align-content: start;
+}
+
+.publishing-career-section .link-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 16px;
+}
+
+.publishing-career-section .link-list li {
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.publishing-career-section .archive-preview-head {
+    margin: 0 0 12px;
+}
+
+.publishing-career-section .archive-preview-card {
+    gap: 8px;
+}
+
+.publishing-career-section .archive-preview-card strong {
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+.publishing-career-section .sub-note {
+    margin-top: 4px;
+}
+
+.project-summary-list {
+    display: grid;
+    gap: 16px;
+}
+
+.project-summary-card {
+    display: grid;
+    gap: 14px;
+    padding: 20px 22px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(20, 20, 20, 0.08);
+}
+
+.project-summary-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 16px;
+}
+
+.project-summary-head h4 {
+    margin-top: 8px;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    color: #1f1b16;
+}
+
+.project-period {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(31, 27, 22, 0.06);
+    color: #5f5142;
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.project-meta-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.project-meta-list li {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: #453b31;
+}
+
+.project-meta-list strong {
+    display: inline-block;
+    min-width: 76px;
+    color: #181410;
+}
+
+.project-summary-role,
+.project-summary-detail {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: #5f5345;
+}
+
 .featured-projects-block {
     display: grid;
     gap: 16px;
@@ -1653,9 +1818,15 @@ nav a.active {
     }
 
     .featured-projects-head,
+    .career-stack-layout,
     .featured-projects-layout,
     .archive-preview-grid,
     .archive-slide {
+        grid-template-columns: 1fr;
+    }
+
+    .publishing-career-section .featured-projects-layout,
+    .publishing-career-section .link-list {
         grid-template-columns: 1fr;
     }
 
@@ -1761,6 +1932,18 @@ nav a.active {
     }
 
     .archive-preview-head {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .career-section,
+    .project-summary-card {
+        padding: 22px 20px;
+        border-radius: 22px;
+    }
+
+    .career-section-head,
+    .project-summary-head {
         flex-direction: column;
         align-items: stretch;
     }

@@ -60,53 +60,132 @@
           <p class="archive-kicker">Project Highlight</p>
           <h2>경력 기술</h2>
         </div>
-        <p class="featured-projects-copy">운영 중인 사이트와 종료된 프로젝트 아카이브를 한 번에 볼 수 있도록 상단에 배치했습니다.</p>
       </div>
 
-      <div class="featured-projects-layout">
-        <div class="featured-projects-block">
-          <p class="archive-kicker">Live Projects</p>
-          <ul class="link-list">
-            <li><a href="https://dyauto.songdk.kro.kr/" target="_blank" rel="noopener">덕양산업</a></li>
-            <li><a href="http://www.webeauty.co.kr/" target="_blank" rel="noopener">위뷰티</a></li>
-            <li><a href="https://twrecordsseoul.com/" target="_blank" rel="noopener">TW RECORDS</a></li>
-            <li><a href="https://baekabioty.songdk.kro.kr/" target="_blank" rel="noopener">백아바이오티</a></li>
-            <li><a href="http://www.mdshi.com/" target="_blank" rel="noopener">대상중공업</a></li>
-            <li><a href="http://www.flowone.co.kr/" target="_blank" rel="noopener">플로원</a></li>
-            <li><a href="https://www.korvan.net/" target="_blank" rel="noopener">Korvan</a></li>
-            <li><a href="http://www.hepabest.com/" target="_blank" rel="noopener">이앤에치</a></li>
-          </ul>
-        </div>
-
-        <div class="featured-projects-block">
-          <div class="archive-preview-head compact">
+      <div class="career-stack-layout">
+        <section class="career-section publishing-career-section">
+          <div class="career-section-head">
             <div>
-              <p class="archive-kicker">Archive</p>
-              <h3>종료된 프로젝트</h3>
+              <p class="archive-kicker">Web Publishing</p>
+              <h3>웹 퍼블리싱 경력</h3>
             </div>
-            <button type="button" class="archive-open-btn" ng-click="openArchiveModal(0)">More</button>
+            <span class="career-section-chip">6년</span>
           </div>
-          <div class="archive-preview-grid">
-            <button
-              type="button"
-              class="archive-preview-card"
-              ng-repeat="project in archivePreviewProjects track by $index"
-              ng-click="openArchiveModal($index)"
-            >
-              <div class="archive-preview-image">
-                <img ng-if="project.image" ng-src="{{imgSrc + project.image}}" alt="{{project.title}}">
-                <div class="archive-placeholder" ng-if="!project.image">
-                  <span>{{project.title}}</span>
-                </div>
-              </div>
-              <strong>{{project.title}}</strong>
-            </button>
-          </div>
-        </div>
-      </div>
 
-      <p class="sub-note">다수 기업형 홈페이지 웹퍼블리싱</p>
-      <p class="sub-note">웹 개발: <a href="https://story.mint05.com" target="_blank">에듀서브(https://story.mint05.com)</a> 유지보수 및 기능단위 프로젝트</p>
+          <p class="career-section-copy">기업형 홈페이지 구축과 운영 프로젝트를 중심으로 다수 사이트의 퍼블리싱을 담당했습니다.</p>
+
+          <div class="featured-projects-layout">
+            <div class="featured-projects-block">
+              <p class="archive-kicker">Live Projects</p>
+              <ul class="link-list">
+                <li><a href="https://dyauto.songdk.kro.kr/" target="_blank" rel="noopener">덕양산업</a></li>
+                <li><a href="http://www.webeauty.co.kr/" target="_blank" rel="noopener">위뷰티</a></li>
+                <li><a href="https://twrecordsseoul.com/" target="_blank" rel="noopener">TW RECORDS</a></li>
+                <li><a href="https://baekabioty.songdk.kro.kr/" target="_blank" rel="noopener">백아바이오티</a></li>
+                <li><a href="http://www.mdshi.com/" target="_blank" rel="noopener">대상중공업</a></li>
+                <li><a href="http://www.flowone.co.kr/" target="_blank" rel="noopener">플로원</a></li>
+                <li><a href="https://www.korvan.net/" target="_blank" rel="noopener">Korvan</a></li>
+                <li><a href="http://www.hepabest.com/" target="_blank" rel="noopener">이앤에치</a></li>
+              </ul>
+            </div>
+
+            <div class="featured-projects-block">
+              <div class="archive-preview-head compact">
+                <div>
+                  <p class="archive-kicker">Archive</p>
+                  <h3>종료된 프로젝트</h3>
+                </div>
+                <button type="button" class="archive-open-btn" ng-click="openArchiveModal(0)">More</button>
+              </div>
+              <div class="archive-preview-grid">
+                <button
+                  type="button"
+                  class="archive-preview-card"
+                  ng-repeat="project in archivePreviewProjects track by $index"
+                  ng-click="openArchiveModal($index)"
+                >
+                  <div class="archive-preview-image">
+                    <img ng-if="project.image" ng-src="{{imgSrc + project.image}}" alt="{{project.title}}">
+                    <div class="archive-placeholder" ng-if="!project.image">
+                      <span>{{project.title}}</span>
+                    </div>
+                  </div>
+                  <strong>{{project.title}}</strong>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="sub-note">다수 기업형 홈페이지 웹퍼블리싱</p>
+        </section>
+
+        <section class="career-section php-career-section">
+          <div class="career-section-head">
+            <div>
+              <p class="archive-kicker">PHP Development</p>
+              <h3>PHP 개발 경력</h3>
+            </div>
+            <span class="career-section-chip">2년</span>
+          </div>
+
+          <p class="career-section-copy">영어교육플랫폼 유지보수와 다양한 기능 단위 프로젝트를 진행했으며, 주요 프로젝트 2건을 중심으로 소개합니다.</p>
+
+          <p class="sub-note">웹 개발: <a href="https://story.mint05.com" target="_blank" rel="noopener">에듀서브(https://story.mint05.com)</a> 유지보수 및 기능단위 프로젝트</p>
+
+          <div class="project-summary-list">
+            <article class="project-summary-card">
+              <div class="project-summary-head">
+                <div>
+                  <p class="archive-kicker">Frontend Project</p>
+                  <h4>New MSET(AI 영어테스트)</h4>
+                </div>
+                <span class="project-period">2025.09 ~ 2025.11</span>
+              </div>
+
+              <ul class="project-meta-list">
+                <li><strong>주요 업무</strong> 프론트엔드 개발</li>
+                <li><strong>개발 인원</strong> 프론트엔드 1명, 백엔드 1명</li>
+                <li><strong>기술 스택</strong> JavaScript, AngularJS, HTML, CSS, PHP, REST API</li>
+              </ul>
+
+              <p class="project-summary-role">
+                브라우저 기반 영어 말하기 테스트 응시 화면의 프론트엔드를 담당했습니다. 시험 진행 API를 연동하고,
+                마이크 권한 확인, 스피커/마이크 사전 점검, 문제 재생, 준비시간·응답시간 제어, 음성 녹음 및 답변 제출,
+                채점 상태 반영까지 전체 사용자 응시 흐름을 구현했습니다.
+              </p>
+
+              <p class="project-summary-detail">
+                별도 설치 없이 응시 가능한 Web 기반 시험 화면을 개발했으며, 권한 거부, 무음 입력, 브라우저 미지원,
+                시험 시간 만료 등 예외 상황에도 안정적으로 동작할 수 있도록 처리했습니다.
+              </p>
+            </article>
+
+            <article class="project-summary-card">
+              <div class="project-summary-head">
+                <div>
+                  <p class="archive-kicker">Backend Project</p>
+                  <h4>AI 자동 댓글 생성 기능 개발</h4>
+                </div>
+                <span class="project-period">2일</span>
+              </div>
+
+              <ul class="project-meta-list">
+                <li><strong>주요 업무</strong> 백엔드</li>
+                <li><strong>개발 인원</strong> 1명</li>
+                <li><strong>기술 스택</strong> PHP(CodeIgniter), OpenAI API, MySQL, Batch/Async Processing, Linux Shell Command (exec 기반 비동기 실행)</li>
+              </ul>
+
+              <p class="project-summary-role">
+                백엔드 API와 배치 로직을 설계·개발하고, AI 프롬프트 엔지니어링과 댓글 생성 정책을 정의했습니다.
+              </p>
+
+              <p class="project-summary-detail">
+                게시글 등록 시점에 비동기 배치 프로세스를 실행해 사용자 응답 속도에 영향을 주지 않도록 했고,
+                `gpt-5-nano` 기반 댓글 생성과 재시도 로직, 응답 실패·파싱 오류·DB 저장 실패 로그까지 구현했습니다.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
     </div>
 
     <div class="card profile-card">
